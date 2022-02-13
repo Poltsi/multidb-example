@@ -16,5 +16,3 @@ spring:
     hibernate:
       ddl-auto: update
       use-new-id-generator-mappings: false
-  flyway:
-    locations: classpath:db/migration/admin
