@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Table(name = "site_page")
 public class SitePage {
 	@Id
@@ -26,5 +28,5 @@ public class SitePage {
 	@Column(name = "id")
 	protected long   id;
 	@Column(name = "body", nullable = false, length = 524288)
-	private String body;
+	private   String body;
 }

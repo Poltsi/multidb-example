@@ -2,6 +2,7 @@ package com.example.admin.configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -33,6 +34,7 @@ public class AdminDatabaseConfiguration {
 	@Primary
 	@Bean(name = "adminDataSource")
 	@ConfigurationProperties(prefix = "spring.admin-datasource.configuration")
+	@FlywayDataSource
 	public DataSource adminDataSource() {
 		return adminDataSourceProperties().initializeDataSourceBuilder()
 										  .type(HikariDataSource.class).build();

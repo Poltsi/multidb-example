@@ -4,12 +4,12 @@ import com.example.admin.entity.AdminPage;
 import com.example.admin.repository.AdminPageRepository;
 import com.example.site.entity.SitePage;
 import com.example.site.repository.SitePageRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.stream.StreamSupport;
 
@@ -17,8 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@Slf4j
-@DataJpaTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@Testcontainers
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
 class MultiDbTest {
 	@Autowired
@@ -52,5 +52,4 @@ class MultiDbTest {
 		var sitePages = sitePageRepository.findAll();
 		assertEquals(1L, StreamSupport.stream(sitePages.spliterator(), false).count());
 	}
-
 }

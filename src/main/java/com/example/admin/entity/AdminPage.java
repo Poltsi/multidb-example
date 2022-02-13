@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 @ToString
-@Table(name = "page")
+@Table(name = "admin_page")
 public class AdminPage {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
